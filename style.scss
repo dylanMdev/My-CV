@@ -1,0 +1,280 @@
+$browser-context: 16; // Default browser size of em
+
+$bg-color: blue;
+$bg-light-color: white;
+
+$bg-linecolor: white;
+$bg-light-linecolor: blue;
+
+$txt-color: black;
+$txt-evid: black;
+$txt-link: black;
+
+@function toEm($pixels, $context: $browser-context) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return calc($pixels / $context) * 1em;
+}
+@mixin pFontSize($size: 2) {
+  font-size: toEm($size * 24px);
+}
+@mixin horizontalMargin($halfSize: 1px) {
+  margin-left: $halfSize;
+  margin-right: $halfSize;
+}
+@mixin verticalMargin($halfSize: 1px) {
+  margin-top: $halfSize;
+  margin-bottom: $halfSize;
+}
+@mixin verticalPadding($halfSize: 1px) {
+  padding-top: $halfSize;
+  padding-bottom: $halfSize;
+}
+@mixin customIcon($url, $size: 50px)
+{
+  width: $size;
+  height: $size;
+  background-size: $size;
+  background-image: url($url);
+  background-repeat: no-repeat;
+  position: center;
+}
+@mixin theme($iconSize: 50px, $size: 2)
+{
+  h1, h2, h3, p, ul, li, tr, td {
+    margin-top: 0px;
+    font-size: toEm($size * 16px);
+    color: $txt-color;
+  }
+  section {
+    h1, h2, h3, p, table, tr, td {
+      padding-left: $size * 1em;
+    }
+    ul {
+      li {
+        p:first-child {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  a {
+    font-size: toEm($size * 16px);
+    color: $txt-link;
+    text-decoration: none;
+  }
+  a:hover {
+    color: darken($txt-link, 25%);
+  }
+  .rowFlex {
+    display: flex;
+    flex-direction: row;
+  }
+  .iconSize {
+    width: $iconSize;
+    height: $iconSize;
+    background-size: $iconSize;
+  }
+  .table {
+    &-date {
+      margin: 0;
+      vertical-align: top;
+    }
+    &-datas {
+      text-align: left;
+      vertical-align: top;
+      p:nth-child(2), p:nth-child(3) {
+        margin-left: $size * 1.5em;
+      }
+    }
+  }
+  .personal {
+    &-mail {
+      margin-left: $size * 1em;
+      &-icon {
+        background-image: url('img/mail-icon.png');
+        background-repeat: no-repeat;
+        position: center;
+        filter: invert(75%);
+      }
+      &-content {
+        margin-left: $size * 1.0em;
+      }
+    }
+    &-phone {
+      margin-top: $size * 1em;
+      margin-left: $size * 1em;
+      &-icon {
+        background-image: url('img/phone-icon.png');
+        background-repeat: no-repeat;
+        position: center;
+        filter: invert(75%);
+        transform: translateY($iconSize * -0.25);
+      }
+      a {
+        margin-left: $size * 1em;
+      }
+    }
+    &-follow {
+      margin-left: $size * 1.0em;
+      //@include horizontalMargin($halfSize: 0.25em * $size);
+    }
+    &-data {
+      h3 {
+        font-size: $size * 1.5em;
+        margin-top: $size * 0.25em;
+        margin-bottom: $size * 0.25em;
+      }
+      p {
+        margin-top: $size * 0.50em;
+        margin-bottom: $size * 0.50em;
+      }
+      p:nth-child(3) {
+        color: $txt-evid;
+      }
+      p:nth-child(4), p:nth-child(5), p:nth-child(6) {
+        font-weight: bold;
+      }
+    }
+    &-intro {
+      article {
+        margin-top: $size * 3.5em;
+        margin-bottom: 0px;
+      }
+    }
+    &-language {
+
+    }
+    &-formation {
+
+    }
+    &-hobbies {
+
+    }
+    &-skills {
+      
+    }
+  }
+}
+@mixin fullSize {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+@mixin gridBigScreen {
+  .personal {
+    display: grid;
+    grid-template-columns: 300px auto;
+    grid-template-rows: auto;
+    grid-auto-flow: row dense;
+    justify-items:stretch;
+    grid-template-areas:
+      ".." 
+      ".."
+      "..";
+    &-data {
+      grid-row-start: 1;
+      grid-column-start: 1;
+    }
+    &-intro {
+      grid-row-start: 1;
+      grid-column-start: 2;
+    }
+    &-language {
+      grid-row-start: 2;
+      grid-column-start: 1;
+    }
+    &-formation {
+      grid-row-start: 2;
+      grid-column-start: 2;
+    }
+    &-hobbies {
+      grid-row-start: 3;
+      grid-column-start: 1;
+    }
+    &-skills {
+      grid-row-start: 3;
+      grid-column-start: 2;
+    }
+  }
+}
+
+html, body {
+  @include fullSize;
+  font-family: sans-serif;
+  background-color: $bg-color;
+}
+section {
+  @include fullSize;
+}
+.personal {
+  &-data, &-language, &-hobbies {
+    h2 {
+      @include verticalPadding($halfSize: 1em);
+      background-color: $bg-linecolor;
+    }
+  }
+  &-intro, &-formation, &-skills {
+    background-color: $bg-light-color;
+    h1, h2 {
+      background-color: $bg-light-linecolor;
+    }
+    h1 {
+      @include verticalPadding($halfSize: 1.5em);
+    }
+    h2 {
+      @include verticalPadding($halfSize: 1em);
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .personal {
+    grid-auto-flow: column dense; 
+    grid-template-columns: auto; 
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+      "."
+      "."
+      "."
+      "."
+      "."
+      ".";
+    gap: 0;
+    &-intro {
+      grid-column-start: 1;
+    }
+    &-data {
+      grid-column-start: 2;
+    }
+    &-language {
+      grid-column-start: 3;
+    }
+    &-formation {
+      grid-column-start: 4;
+    }
+    &-skills {
+      grid-row-start: 3;
+      grid-column-start: 5;
+    }
+    &-hobbies {
+      grid-column-start: 6;
+    }
+  }
+  @include theme($iconSize: 25px, $size: 0.9);
+}
+/* ~1k devices */
+@media only screen and (min-width: 769px) and (max-width: 1920px) {
+  @include gridBigScreen;
+  @include theme($iconSize: 35px, $size: 1.0);
+}
+/* > 1k+ device */
+@media only screen and (min-width: 1921px) {
+  @include gridBigScreen;
+  @include theme($iconSize: 50px, $size: 1.1);
+}
