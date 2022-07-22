@@ -1,0 +1,395 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: sans-serif;
+  background-color: blue;
+}
+
+section {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.personal-data h2, .personal-language h2, .personal-hobbies h2 {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background-color: white;
+}
+.personal-intro, .personal-formation, .personal-skills {
+  background-color: blue
+}
+.personal-intro h1, .personal-intro h2, .personal-formation h1, .personal-formation h2, .personal-skills h1, .personal-skills h2 {
+  background-color: white;
+}
+.personal-intro h1, .personal-formation h1, .personal-skills h1 {
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+}
+.personal-intro h2, .personal-formation h2, .personal-skills h2 {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+@media only screen and (max-width: 768px) {
+  .personal {
+    grid-auto-flow: column dense;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: "." "." "." "." "." ".";
+    gap: 0;
+  }
+  .personal-intro {
+    grid-column-start: 1;
+  }
+  .personal-data {
+    grid-column-start: 2;
+  }
+  .personal-language {
+    grid-column-start: 3;
+  }
+  .personal-formation {
+    grid-column-start: 4;
+  }
+  .personal-skills {
+    grid-row-start: 3;
+    grid-column-start: 5;
+  }
+  .personal-hobbies {
+    grid-column-start: 6;
+  }
+  h1, h2, h3, p, ul, li, tr, td {
+    margin-top: 0px;
+    font-size: 0.9em;
+    color: black;
+  }
+  section h1, section h2, section h3, section p, section table, section tr, section td {
+    padding-left: 0.9em;
+  }
+  section ul li p:first-child {
+    font-weight: bold;
+  }
+  a {
+    font-size: 0.9em;
+    color: black;
+    text-decoration: none;
+  }
+  a:hover {
+    color: black;
+  }
+  .rowFlex {
+    display: flex;
+    flex-direction: row;
+  }
+  .iconSize {
+    width: 25px;
+    height: 25px;
+    background-size: 25px;
+  }
+  .table-date {
+    margin: 0;
+    vertical-align: top;
+  }
+  .table-datas {
+    text-align: left;
+    vertical-align: top;
+  }
+  .table-datas p:nth-child(2), .table-datas p:nth-child(3) {
+    margin-left: 1.35em;
+  }
+  .personal-mail {
+    margin-left: 0.9em;
+  }
+  .personal-mail-icon {
+    background-image: url("img/mail-icon.png");
+    background-repeat: no-repeat;
+    position: center;
+    filter: invert(75%);
+  }
+  .personal-mail-content {
+    margin-left: 0.9em;
+  }
+  .personal-phone {
+    margin-top: 0.9em;
+    margin-left: 0.9em;
+  }
+  .personal-phone-icon {
+    background-image: url("img/phone-icon.png");
+    background-repeat: no-repeat;
+    position: center;
+    filter: invert(75%);
+    transform: translateY(-6.25px);
+  }
+  .personal-phone a {
+    margin-left: 0.9em;
+  }
+  .personal-follow {
+    margin-left: 0.9em;
+  }
+  .personal-data h3 {
+    font-size: 1.35em;
+    margin-top: 0.225em;
+    margin-bottom: 0.225em;
+  }
+  .personal-data p {
+    margin-top: 0.45em;
+    margin-bottom: 0.45em;
+  }
+  .personal-data p:nth-child(3) {
+    color: black;
+  }
+  .personal-data p:nth-child(4), .personal-data p:nth-child(5), .personal-data p:nth-child(6) {
+    font-weight: bold;
+  }
+  .personal-intro article {
+    margin-top: 3.15em;
+    margin-bottom: 0px;
+  }
+}
+/* ~1k devices */
+@media only screen and (min-width: 769px) and (max-width: 1920px) {
+  .personal {
+    display: grid;
+    grid-template-columns: 300px auto;
+    grid-template-rows: auto;
+    grid-auto-flow: row dense;
+    justify-items: stretch;
+    grid-template-areas: ".." ".." "..";
+  }
+  .personal-data {
+    grid-row-start: 1;
+    grid-column-start: 1;
+  }
+  .personal-intro {
+    grid-row-start: 1;
+    grid-column-start: 2;
+  }
+  .personal-language {
+    grid-row-start: 2;
+    grid-column-start: 1;
+  }
+  .personal-formation {
+    grid-row-start: 2;
+    grid-column-start: 2;
+  }
+  .personal-hobbies {
+    grid-row-start: 3;
+    grid-column-start: 1;
+  }
+  .personal-skills {
+    grid-row-start: 3;
+    grid-column-start: 2;
+  }
+  h1, h2, h3, p, ul, li, tr, td {
+    margin-top: 0px;
+    font-size: 1em;
+    color: black;
+  }
+  section h1, section h2, section h3, section p, section table, section tr, section td {
+    padding-left: 1em;
+  }
+  section ul li p:first-child {
+    font-weight: bold;
+  }
+  a {
+    font-size: 1em;
+    color: #85c0c0;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #438282;
+  }
+  .rowFlex {
+    display: flex;
+    flex-direction: row;
+  }
+  .iconSize {
+    width: 35px;
+    height: 35px;
+    background-size: 35px;
+  }
+  .table-date {
+    margin: 0;
+    vertical-align: top;
+  }
+  .table-datas {
+    text-align: left;
+    vertical-align: top;
+  }
+  .table-datas p:nth-child(2), .table-datas p:nth-child(3) {
+    margin-left: 1.5em;
+  }
+  .personal-mail {
+    margin-left: 1em;
+  }
+  .personal-mail-icon {
+    background-image: url("img/mail-icon.png");
+    background-repeat: no-repeat;
+    position: center;
+    filter: invert(75%);
+  }
+  .personal-mail-content {
+    margin-left: 1em;
+  }
+  .personal-phone {
+    margin-top: 1em;
+    margin-left: 1em;
+  }
+  .personal-phone-icon {
+    background-image: url("img/phone-icon.png");
+    background-repeat: no-repeat;
+    position: center;
+    filter: invert(75%);
+    transform: translateY(-8.75px);
+  }
+  .personal-phone a {
+    margin-left: 1em;
+  }
+  .personal-follow {
+    margin-left: 1em;
+  }
+  .personal-data h3 {
+    font-size: 1.5em;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+  }
+  .personal-data p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  .personal-data p:nth-child(3) {
+    color: #63c66b;
+  }
+  .personal-data p:nth-child(4), .personal-data p:nth-child(5), .personal-data p:nth-child(6) {
+    font-weight: bold;
+  }
+  .personal-intro article {
+    margin-top: 3.5em;
+    margin-bottom: 0px;
+  }
+}
+/* > 1k+ device */
+@media only screen and (min-width: 1921px) {
+  .personal {
+    display: grid;
+    grid-template-columns: 300px auto;
+    grid-template-rows: auto;
+    grid-auto-flow: row dense;
+    justify-items: stretch;
+    grid-template-areas: ".." ".." "..";
+  }
+  .personal-data {
+    grid-row-start: 1;
+    grid-column-start: 1;
+  }
+  .personal-intro {
+    grid-row-start: 1;
+    grid-column-start: 2;
+  }
+  .personal-language {
+    grid-row-start: 2;
+    grid-column-start: 1;
+  }
+  .personal-formation {
+    grid-row-start: 2;
+    grid-column-start: 2;
+  }
+  .personal-hobbies {
+    grid-row-start: 3;
+    grid-column-start: 1;
+  }
+  .personal-skills {
+    grid-row-start: 3;
+    grid-column-start: 2;
+  }
+  h1, h2, h3, p, ul, li, tr, td {
+    margin-top: 0px;
+    font-size: 1.1em;
+    color: #fefce6;
+  }
+  section h1, section h2, section h3, section p, section table, section tr, section td {
+    padding-left: 1.1em;
+  }
+  section ul li p:first-child {
+    font-weight: bold;
+  }
+  a {
+    font-size: 1.1em;
+    color: #85c0c0;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #438282;
+  }
+  .rowFlex {
+    display: flex;
+    flex-direction: row;
+  }
+  .iconSize {
+    width: 50px;
+    height: 50px;
+    background-size: 50px;
+  }
+  .table-date {
+    margin: 0;
+    vertical-align: top;
+  }
+  .table-datas {
+    text-align: left;
+    vertical-align: top;
+  }
+  .table-datas p:nth-child(2), .table-datas p:nth-child(3) {
+    margin-left: 1.65em;
+  }
+  .personal-mail {
+    margin-left: 1.1em;
+  }
+  .personal-mail-icon {
+    background-image: url("img/mail-icon.png");
+    background-repeat: no-repeat;
+    position: center;
+    filter: invert(75%);
+  }
+  .personal-mail-content {
+    margin-left: 1.1em;
+  }
+  .personal-phone {
+    margin-top: 1.1em;
+    margin-left: 1.1em;
+  }
+  .personal-phone-icon {
+    background-image: url("img/phone-icon.png");
+    background-repeat: no-repeat;
+    position: center;
+    filter: invert(75%);
+    transform: translateY(-12.5px);
+  }
+  .personal-phone a {
+    margin-left: 1.1em;
+  }
+  .personal-follow {
+    margin-left: 1.1em;
+  }
+  .personal-data h3 {
+    font-size: 1.65em;
+    margin-top: 0.275em;
+    margin-bottom: 0.275em;
+  }
+  .personal-data p {
+    margin-top: 0.55em;
+    margin-bottom: 0.55em;
+  }
+  .personal-data p:nth-child(3) {
+    color: #63c66b;
+  }
+  .personal-data p:nth-child(4), .personal-data p:nth-child(5), .personal-data p:nth-child(6) {
+    font-weight: bold;
+  }
+  .personal-intro article {
+    margin-top: 3.85em;
+    margin-bottom: 0px;
+  }
+}
